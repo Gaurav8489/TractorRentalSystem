@@ -1,0 +1,196 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    padding: 15px;
+    background-color: #000; /* इमेज लोड होईपर्यंत बॅकग्राउंड काळा राहील */
+}
+
+/* 🎥 व्हिडिओसारखा सिनेमाटीक मोशन बॅकग्राउंड (१००% क्लिअर) */
+body::before {
+    content: '';
+    position: absolute;
+    top: -10%; left: -10%; width: 120%; height: 120%;
+    background-image: url('img/addT.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    opacity: 1.0; /* इमेज पूर्णपणे स्पष्ट दिसेल */
+    animation: backgroundMove 20s linear infinite alternate;
+}
+
+/* 🌟 लहान आकाराचा आणि पूर्णपणे पारदर्शक काचेचा बॉक्स (Super Transparent) */
+.form-container {
+    background: rgba(255, 255, 255, 0.08); /* गडद रंग पूर्ण काढला, फक्त फिकट पांढरी काच ठेवली */
+    backdrop-filter: blur(8px); /* ब्लर कमी केला जेणेकरून मागची इमेज आरपार दिसेल */
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px 25px; /* पॅडिंग कमी करून बॉक्स लहान केला */
+    border-radius: 16px;
+    width: 100%;
+    max-width: 380px; /* साईझ ५२०px वरून ३८०px (Choti) केली आहे */
+    z-index: 3;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(46, 204, 113, 0.2);
+    animation: containerFade 0.5s ease-out;
+}
+
+/* फॉर्म हेडर */
+.form-header {
+    text-align: center;
+    color:#000;
+    margin-bottom: 25px;
+}
+
+.form-header span {
+    color: #2ecc71;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.form-header h1 {
+    color: #ffffff;
+    font-size: 1.8rem; /* हेडिंग साईझ लहान केली */
+    font-weight: 800;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* इनपुट रो (Row) डिझाईन */
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4); /* इनपुटच्या आतील भाग थोडा डार्क जेणेकरून टेक्स्ट वाचता येईल */
+    border: 1px solid rgba(46, 204, 113, 0.5);
+    border-radius: 25px;
+    padding: 10px 20px; /* बारीक इनपुट */
+    margin-bottom: 15px; /* अंतर कमी केले */
+    transition: all 0.3s ease;
+}
+
+/* डावीकडील भाग */
+.input-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.input-left .icon {
+    color: #2ecc71;
+    font-size: 1rem;
+}
+
+/* इनपुट फील्ड */
+.input-left input {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    color: #ffffff;
+    width: 100%;
+    font-weight: 500;
+}
+
+/* उजव्या बाजूचे फिकट टेक्स्ट */
+.hint-text {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-transform: uppercase;
+    padding-left: 5px;
+}
+
+/* क्लिक केल्यावर होणारा ग्लो */
+.input-group:focus-within {
+    background: rgba(46, 204, 113, 0.15);
+    border-color: #2ecc71;
+    box-shadow: 0 0 12px rgba(46, 204, 113, 0.5);
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* सबमिट बटन (Compact size) */
+input[type="submit"] {
+    width: 100%;
+    background: linear-gradient(135deg, #00ff77, #00aa50);
+    color: #ffffff;
+    border: none;
+    padding: 12px; /* बटनची जाडी कमी केली */
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 20px rgba(0, 255, 119, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 255, 119, 0.5);
+}
+
+/* 🔙 Back to Dashboard Button */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px 0;
+  width: 100%;
+  background: rgba(46, 204, 113, 0.15);
+  color: #00ff77;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0, 255, 119, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+a:hover {
+  background: linear-gradient(135deg, #00ff77, #00aa50);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 255, 119, 0.6);
+}
+
+/* Motion Animation */
+@keyframes backgroundMove {
+    0% { transform: scale(1) translate(0, 0); }
+    50% { transform: scale(1.04) translate(-0.5%, -0.5%); }
+    100% { transform: scale(1.08) translate(0.5%, -0.2%); }
+}
+
+@keyframes containerFade {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

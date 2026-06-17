@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="adminlogin.css?v=2.0">
+</head>
+<body>
+
+<div class="login-container">
+    <form action="AdminLoginServlet" method="post" class="login-form">
+        <h1>Admin Portal</h1>
+        <p class="subtitle">Welcome back! Please login to your account.</p>
+
+        <div class="input-group">
+            <input type="text" name="username" required placeholder=" ">
+            <label>Username</label>
+        </div>
+
+        <div class="input-group">
+            <input type="password" name="password" required placeholder=" ">
+            <label>Password</label>
+        </div>
+
+        <input type="submit" value="Login to Dashboard">
+        
+      
+         <br>   <br>
+     <a  href="index.html">
+                Back To Dashboard
+                  </a>
+        
+    </form>
+</div>
+
+</body>
+</html>

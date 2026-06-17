@@ -1,0 +1,195 @@
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 1. LIVE ANIMATED BACKGROUND WITH IMAGE */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+    
+    /* Mixes a dark tinted image with a shifting gradient color */
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1e3c72);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+/* Optional: Adds a textured background picture under the animation */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920'); /* Replace with your image link */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25; /* Blends the image into the moving background */
+    z-index: -1;
+}
+
+/* Background movement animation loop */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 2. GLASSMORPHISM FORM CONTAINER */
+.login-form {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 50px 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle hover pop effect on the card itself */
+.login-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Typography styling */
+h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #b0bec5;
+    font-size: 0.9rem;
+    margin-bottom: 35px;
+}
+
+/* 3. LIVE FLOATING LABELS EFFECT */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Label default status inside the box */
+.input-group label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b0bec5;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+/* When input is clicked/focused, glow borders */
+.input-group input:focus {
+    border-color: #00e676; /* Vibrant Neon green glow on focus */
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(0, 230, 118, 0.2);
+}
+
+/* The magic placeholder-transform rule for floating labels */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -12px;
+    left: 12px;
+    font-size: 0.8rem;
+    color: #00e676;
+    background: #1b3541; /* Matches the dark background theme */
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* 4. BUTTON WITH SMOOTH GLOW EFFECTS */
+input[type="submit"] {
+    width: 100%;
+    background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(90deg, #0072ff 0%, #00c6ff 100%);
+    box-shadow: 0 6px 25px rgba(0, 114, 255, 0.6);
+    transform: scale(1.02);
+}
+
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Link Styling */
+.forgot-pass {
+    display: inline-block;
+    margin-top: 20px;
+    color: #b0bec5;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.forgot-pass:hover {
+    color: #00c6ff;
+    text-decoration: underline;
+}
+/* 🔙 Back to Dashboard Button */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px 0;
+  width: 100%;
+  background: rgba(46, 204, 113, 0.15);
+  color: #00ff77;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0, 255, 119, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+a:hover {
+  background: linear-gradient(135deg, #00ff77, #00aa50);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 255, 119, 0.6);
+}

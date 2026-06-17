@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="admindashb.css">
+
+</head>
+<body>
+
+	<h1>🚜 Admin Dashboard</h1>
+
+	<ul>
+
+		<li><a href="addtractor.html"> Add Tractor </a></li>
+
+		<li> <a href="ViewTractorServlet"> View Tractors </a></li>
+
+		<li><a href="mybookings.html"> View Bookings </a></li>
+
+		<li><a href="deletetractor.html"> Delete Tractor </a></li>
+		
+		<li>
+<a href="updatetractor.html">Update Tractor</a></li>
+		
+		<li> <a href="searchtractor.html">Search Tractor</a> </li>
+		
+		<li>  <a href="ViewAllBookingsServlet">
+    View All Bookings
+</a></li>
+
+		<li><a href="index.html"> Logout </a></li>
+		
+		
+
+
+	</ul>
+	<audio id="bgMusic" loop>
+    <source src="song/dekh.mp3" type="audio/mpeg">
+    तुमचा ब्राउझर ऑडिओ टॅगला सपोर्ट करत नाही.
+</audio>
+
+<button id="musicBtn" onclick="toggleMusic()" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+">🎵 Play Music</button><script>
+    var music = document.getElementById("bgMusic");
+    var btn = document.getElementById("musicBtn");
+
+    // १. युझरने स्क्रीनवर कुठेही पहिला क्लिक केला की म्युझिक आपोआप चालू होईल
+    document.addEventListener('click', function() {
+        if (music.paused) {
+            playSong();
+        }
+    }, { once: true }); // 'once: true' मुळे हे फक्त पहिल्या क्लिकलाच काम करेल
+
+    // २. बटनद्वारे गाणं प्ले किंवा पॉज करण्याची फंक्शनॅलिटी
+    function toggleMusic() {
+        if (music.paused) {
+            playSong();
+        } else {
+            music.pause();
+            btn.innerHTML = "📁 Music Paused";
+            btn.style.background = "rgba(255, 255, 255, 0.2)";
+        }
+    }
+
+    function playSong() {
+        music.play().then(() => {
+            btn.innerHTML = "🎶 Music On";
+            btn.style.background = "linear-gradient(135deg, #2ecc71, #27ae60)";
+        }).catch(error => {
+            console.log("Autoplay अडवला गेला आहे, युझरच्या क्लिकची गरज आहे.");
+        });
+    }
+</script>
+
+
+
+</body>
+</html>

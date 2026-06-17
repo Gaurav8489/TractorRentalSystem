@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Update Tractor</title>
+<link rel="stylesheet" href="updatetractor.css">
+</head>
+<body>
+
+<h1>🚜 Update Tractor</h1>
+
+<form action="UpdateTractorServlet" method="post">
+
+<input type="number"
+       name="tractorId"
+       placeholder="Enter Tractor ID"
+       required>
+
+<br><br>
+
+<input type="number"
+       name="rentPerDay"
+       placeholder="New Rent Per Day"
+       required>
+
+<br><br>
+
+<input type="text"
+       name="status"
+       placeholder="Available / Booked"
+       required>
+
+<br><br>
+
+<input type="submit"
+       value="Update Tractor">
+       
+       <br><br>
+       
+       <a  href="AdminDashboardServlet">
+                Back To Dashboard
+                  </a>
+
+</form>
+
+</body>
+</html>

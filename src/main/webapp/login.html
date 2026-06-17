@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmer Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./login.css">
+
+</head>
+<body>
+
+<div class="container">
+
+
+<form action="LoginServlet" method="post" class="login-form">
+
+    <div id="errorMsg"
+         class="error-msg"
+         style="display:none;">
+        ❌ Invalid Mobile or Password
+    </div>
+
+    <h1>Farmer Login</h1>
+
+    <p class="subtitle">
+        Welcome to the Agriculture Portal.
+        Please secure login.
+    </p>
+
+    <div class="input-group">
+        <input type="text"
+               name="mobile"
+               required
+               placeholder=" ">
+        <label>Enter Mobile</label>
+    </div>
+
+    <div class="input-group">
+        <input type="password"
+               name="password"
+               required
+               placeholder=" ">
+        <label>Enter Password</label>
+    </div>
+
+    <input type="submit" value="Login">
+
+<br>
+
+    <a href="forgotpassword.html">
+        Forgot Password?
+    </a>
+    
+    <br>   
+     <a  href="index.html">
+                Back To Dashboard
+                  </a>
+
+</form>
+
+
+</div>
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+if(params.get("error") === "1")
+{
+    document.getElementById("errorMsg")
+            .style.display = "block";
+}
+
+</script>
+
+</body>
+</html>

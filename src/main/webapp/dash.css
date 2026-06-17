@@ -1,0 +1,124 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background with image + gradient overlay */
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Farming background image */
+  background: url("https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?q=80&w=1920") no-repeat center center fixed;
+  background-size: cover;
+
+  /* Gradient overlay */
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(-45deg, rgba(44,62,80,0.7), rgba(39,174,96,0.6), rgba(26,188,156,0.6), rgba(22,160,133,0.7));
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  z-index: -1;
+}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header */
+header h1 {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 800;
+  padding: 20px 40px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  text-shadow: 0 0 20px rgba(0,0,0,0.6);
+  margin-bottom: 40px;
+  animation: fadeInDown 1.2s ease-out;
+}
+
+/* Welcome Text */
+main h2 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Menu Grid */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* Menu Links */
+.menu a {
+  text-decoration: none;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  color: #fff;
+  padding: 20px 25px;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.25);
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effects */
+.menu a:hover {
+  transform: translateY(-6px) scale(1.05);
+  background: linear-gradient(135deg, #00c853, #69f0ae);
+  color: #fff;
+  border-color: #00e676;
+  box-shadow: 0 12px 30px rgba(0, 200, 83, 0.6);
+}
+
+/* Shine Animation */
+.menu a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shine 2.5s infinite;
+}
+@keyframes shine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: -100%; }
+}
+
+/* Fade In Animation */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}

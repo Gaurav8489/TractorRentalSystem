@@ -1,0 +1,149 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    padding: 15px;
+}
+
+/* व्हिडिओसारखा मोशन इफेक्ट असलेला बॅकग्राउंड */
+body::before {
+    content: '';
+    position: absolute;
+    /* मोशन होताना कडा पांढऱ्या दिसू नयेत म्हणून साईझ थोडी वाढवली आहे */
+    top: -10%; left: -10%; width: 120%; height: 120%;
+    background-image: url('img/adash.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    opacity: 0.85; 
+    /* 20 सेकंदात हळुवार व्हिडिओसारखी मूव्हमेंट होईल */
+    animation: backgroundMove 20s linear infinite alternate;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* लहान आकाराचे हेडिंग */
+h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    z-index: 3;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+/* छोटा आणि कॉम्पॅक्ट मेनू बॉक्स */
+ul {
+    list-style: none;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 25px 20px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 340px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: scaleUp 0.8s ease-out;
+}
+
+li {
+    width: 100%;
+}
+
+/* लहान आणि बारीक बटने */
+li a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 11px 15px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* होव्हर इफेक्ट */
+li a:hover {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    border-color: #2ecc71;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(46, 204, 113, 0.4);
+}
+
+/* लॉगआउट बटन */
+li:last-child a {
+    background: rgba(231, 76, 60, 0.2);
+    border-color: rgba(231, 76, 60, 0.4);
+    color: #ff8e8c;
+    margin-top: 5px;
+}
+
+li:last-child a:hover {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-color: #e74c3c;
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
+}
+
+li a:active {
+    transform: translateY(0);
+}
+
+/* 🎥 व्हिडिओसारखा सिनेमाटीक मोशन इफेक्ट (Cinematic Ken Burns Effect) */
+@keyframes backgroundMove {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+    33% {
+        transform: scale(1.08) translate(-2%, -1%);
+    }
+    66% {
+        transform: scale(1.04) translate(1%, -3%);
+    }
+    100% {
+        transform: scale(1.1) translate(-1%, -2%);
+    }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}

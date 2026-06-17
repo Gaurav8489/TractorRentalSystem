@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Tractor</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<link rel="stylesheet" href="addTractor.css">
+
+</head>
+<body>
+
+<div class="form-container">
+
+<div class="form-header">
+    <span>TRACTOR ADDITION FORM</span>
+    <h1>🚜 Add New Tractor</h1>
+</div>
+
+<form action="AddTractorServlet"
+      method="post"
+      enctype="multipart/form-data">
+
+    <div class="input-group">
+        <div class="input-left">
+            <i class="fa-solid fa-tractor icon"></i>
+
+            <input type="text"
+                   name="tractorName"
+                   placeholder="Tractor Name"
+                   required>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <div class="input-left">
+            <i class="fa-solid fa-gears icon"></i>
+
+            <input type="text"
+                   name="model"
+                   placeholder="Model"
+                   required>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <div class="input-left">
+            <i class="fa-solid fa-indian-rupee-sign icon"></i>
+
+            <input type="number"
+                   name="rentPerDay"
+                   placeholder="Rent Per Day"
+                   required>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <div class="input-left">
+            <i class="fa-solid fa-circle-check icon"></i>
+
+            <input type="text"
+                   name="status"
+                   placeholder="Status"
+                   value="Available"
+                   required>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <div class="input-left">
+
+            <i class="fa-solid fa-image icon"></i>
+
+            <input type="file"
+                   name="image"
+                   accept="image/*"
+                   required>
+
+        </div>
+    </div>
+
+    <input type="submit"
+           value="Add Tractor">
+           
+           <a  href="AdminDashboardServlet">
+                Back To Dashboard
+                  </a>
+           
+
+</form>
+
+
+</div>
+
+</body>
+</html>

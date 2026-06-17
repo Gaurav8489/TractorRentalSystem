@@ -1,0 +1,130 @@
+/* Reset margins */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    
+    /* बदल: फॉर्म उजव्या बाजूला सरकवण्यासाठी flex-end केले */
+    justify-content: flex-end; 
+    align-items: center;     
+    
+    /* बदल: फॉर्म स्क्रीनच्या एकदम कडेला चिकटू नये म्हणून उजवीकडून जागा सोडली */
+    padding-right: 10%; 
+    
+    /* बॅकग्राउंड इमेज सेटिंग्ज */
+    background-image: url("img/rg.png"); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover; 
+}
+
+/* फॉर्म कंटेनर आणि त्याचे ॲनिमेशन */
+.container {
+    width: 360px; 
+    background: rgba(255, 255, 255, 0.92); 
+    padding: 30px 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    
+    /* लोड होताना येणारे ॲनिमेशन */
+    animation: openCard 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    opacity: 0; 
+}
+
+@keyframes openCard {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+h1 {
+    color: #2e7d32;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* इनपुट फील्ड्समधील अंतर */
+form input[type="text"],
+form input[type="password"] {
+    width: 100%; 
+    padding: 12px;
+    margin-bottom: 16px; 
+    border: 1.5px solid #cccccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+/* इनपुटवर क्लिक केल्यावर होणारा बदल */
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #388e3c;
+    box-shadow: 0 0 8px rgba(56, 142, 60, 0.3);
+}
+
+/* सबमिट बटन डिझाईन */
+form input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: #388e3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: all 0.2s ease;
+}
+
+/* बटन इफेक्ट्स */
+form input[type="submit"]:hover {
+    background: #1b5e20;
+    box-shadow: 0 4px 12px rgba(27, 94, 32, 0.3);
+}
+
+form input[type="submit"]:active {
+    transform: scale(0.98); 
+}
+/* 🔙 Back to Dashboard Button */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px 0;
+  width: 100%;
+  background: rgba(46, 204, 113, 0.15);
+  color: #400040;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(0, 255, 119, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+a:hover {
+  background: linear-gradient(135deg, #00ff77, #00aa50);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(0, 255, 119, 0.6);
+}
+

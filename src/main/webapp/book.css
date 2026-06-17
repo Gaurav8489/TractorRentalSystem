@@ -1,0 +1,193 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    background-color: #0b130e;
+}
+
+/* १. जिवंत ट्रॅक्टर बॅकग्राउंड (Live Moving Background) */
+body::before {
+    content: '';
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: url('img/book.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    /* ३D हलणारा इफेक्ट */
+    animation: liveCamera 25s ease-in-out infinite alternate;
+}
+
+/* २. शेतातल्या उन्हाचा आणि सावलीचा इफेक्ट (Live Sun Flare & Shadow) */
+body::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 80% 20%, rgba(255, 223, 132, 0.4) 0%, rgba(0,0,0,0.5) 70%);
+    z-index: 2;
+    pointer-events: none;
+    animation: sunGlow 8s ease-in-out infinite alternate;
+}
+
+/* ३. धूर आणि ढगांचा लाईव्ह इफेक्ट (Live Smoke / Clouds Clouds Overlay) */
+.smoke-layer {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'), 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    z-index: 2;
+    opacity: 0.6;
+    animation: smokeMoving 30s linear infinite;
+    pointer-events: none;
+}
+
+/* --- KEYFRAMES ANIMATIONS (ज्यामुळे सगळं लाईव्ह वाटेल) --- */
+
+@keyframes liveCamera {
+    0% { transform: scale(1) translate(0, 0) rotate(0deg); }
+    50% { transform: scale(1.06) translate(-1%, -1%) rotate(0.5deg); }
+    100% { transform: scale(1.03) translate(1%, 0%) rotate(-0.5deg); }
+}
+
+@keyframes sunGlow {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+@keyframes smokeMoving {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+@keyframes formEntrance {
+    from { opacity: 0; transform: scale(0.9) translateY(40px); blur: (10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); blur: (0); }
+}
+
+/* --- FORM STYLING --- */
+
+h1 {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    z-index: 3;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: formEntrance 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+form {
+    /* मॉडर्न काचेचा लुक (Glassmorphism) जेणेकरून मागचा ट्रॅक्टर दिसेल */
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 420px;
+    z-index: 3;
+    color: #ffffff;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    animation: formEntrance 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+form br {
+    display: none; /* जुने ब्रिक्स काढून आपण मार्जिन वापरणार */
+}
+
+/* Labels */
+form input[type="number"] {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 8px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    color: #1b261f;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Input Focus - जिवंत बॉर्डर ग्लो */
+form input[type="number"]:focus {
+    background: #ffffff;
+    outline: none;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.6);
+}
+
+/* Submit Button - Dynamic Pulsing Green */
+input[type="submit"] {
+    width: 100%;
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+/* Button Hover State */
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #27ae60, #219653);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(39, 174, 96, 0.6);
+}
+
+input[type="submit"]:active {
+    transform: translateY(-1px);
+}
+.back-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px 25px;   /* 🔽 padding कमी केलं */
+    font-size: 1rem;      /* 🔽 font-size कमी */
+    font-weight: 600;     /* 🔽 थोडं हलकं weight */
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
+    transition: all 0.3s ease;
+    margin-top: 15px;     /* 🔽 margin कमी */
+}
+
+.back-btn:hover {
+    background: linear-gradient(135deg, #27ae60, #219653);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(39, 174, 96, 0.6);
+}

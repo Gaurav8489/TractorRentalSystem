@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("img/tractorb.png") no-repeat center center fixed;
+    background-size: cover; /* background image full screen */
+}
+
+.container {
+    text-align: center;
+    background: rgba(255,255,255,0.9); /* हलका transparent box */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.msg {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.btn {
+    text-decoration: none;
+    background: #388e3c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-size: 18px;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    background: #1b5e20;
+    transform: scale(1.1);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
